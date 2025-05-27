@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodología de Colores para Ajedrez - [TU NOMBRE COMPLETO]</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos personalizados y para Tailwind */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            /* Considera un degradado sutil o una imagen de fondo temática */
+            background-color: #f0f4f8; /* Un gris azulado claro como base */
+        }
+        .section-title {
+            @apply text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-800;
+        }
+        .section-subtitle {
+            @apply text-lg md:text-xl text-center text-gray-600 mb-10 md:mb-16 max-w-3xl mx-auto;
+        }
+        .cta-button {
+            @apply px-8 py-3 bg-emerald-600 text-white font-semibold rounded-lg shadow-md hover:bg-emerald-700 transition duration-300 ease-in-out transform hover:scale-105;
+        }
+        .secondary-cta-button {
+            @apply px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg shadow-md hover:bg-orange-600 transition duration-300 ease-in-out transform hover:scale-105;
+        }
+        .card {
+            @apply bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300;
+        }
+        .color-tag {
+            @apply px-3 py-1 text-sm font-semibold rounded-full text-white;
+        }
+        .color-rojo { background-color: #EF4444; /* Rojo de Tailwind */ }
+        .color-naranja { background-color: #F97316; /* Naranja de Tailwind */ }
+        .color-verde { background-color: #22C55E; /* Verde de Tailwind */ }
+        .color-verde-fluo { background-color: #A3E635; /* Lima de Tailwind (como verde fluo) */ color: #374151; /* Texto más oscuro para contraste */ }
+
+        /* Animación para aparición de elementos */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Estilo para el menú móvil */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+        .nav-link {
+             @apply text-gray-600 hover:text-emerald-600 px-3 py-2 rounded-md text-sm font-medium transition-colors;
+        }
+        .nav-link-mobile {
+            @apply block text-gray-700 hover:bg-emerald-500 hover:text-white px-3 py-2 rounded-md text-base font-medium transition-colors;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-700">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-2xl font-bold text-emerald-600">Metodología Colores</a>
+                <div class="hidden md:flex space-x-4">
+                    <a href="#metodologia" class="nav-link">La Metodología</a>
+                    <a href="#beneficios" class="nav-link">Beneficios</a>
+                    <a href="#autor" class="nav-link">Autor</a>
+                    <a href="#libro" class="nav-link">Libro</a>
+                    <a href="#clases" class="nav-link">Clases</a>
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-emerald-600 focus:outline-none focus:text-emerald-600">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="md:hidden hidden flex-col mt-3 space-y-1 transform -translate-x-full">
+                <a href="#metodologia" class="nav-link-mobile">La Metodología</a>
+                <a href="#beneficios" class="nav-link-mobile">Beneficios</a>
+                <a href="#autor" class="nav-link-mobile">Autor</a>
+                <a href="#libro" class="nav-link-mobile">Libro</a>
+                <a href="#clases" class="nav-link-mobile">Clases</a>
+                <a href="#contacto" class="nav-link-mobile">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero-bg py-20 md:py-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-800 mb-6 fade-in-up">
+                <span class="text-emerald-600">Metodología de Colores:</span> La Revolución Visual para Dominar el Ajedrez
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto fade-in-up" style="animation-delay: 0.2s;">
+                Aprende ajedrez de forma estructurada, intuitiva y eficaz. Un sistema aplicable a jugadores de todos los niveles, desarrollado por <span class="font-semibold text-emerald-700">Lara Hernandez</span>.
+            </p>
+            <a href="#metodologia" class="cta-button text-lg fade-in-up" style="animation-delay: 0.4s;">Descubre la Metodología que Cambiará tu Juego</a>
+            <div class="mt-12 md:mt-16 fade-in-up" style="animation-delay: 0.6s;">
+                <div class="w-full max-w-md lg:max-w-xl xl:max-w-2xl h-64 md:h-80 bg-gray-300 mx-auto rounded-lg shadow-xl flex items-center justify-center text-gray-500">
+                    <p>[Imagen/Gráfico Representativo de la Metodología de Colores: Rojo, Naranja, Verde, Verde Fluorescente]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="metodologia" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-xl font-semibold text-gray-800">¿Qué es la Metodología de Colores?</h2>
+            <p class="section-subtitle fade-in-up" style="animation-delay: 0.1s;">
+                Un sistema innovador para evaluar y priorizar tus piezas y peones en el tablero. Asignamos colores según su actividad, posición y rol estratégico, transformando tu manera de entender el juego.
+            </p>
+            <br>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="flex items-center mb-3">
+                        <span class="color-tag color-rojo mr-3">Rojo</span>
+                        <h3 class="text-xl font-semibold text-gray-800">Piezas Rojas</h3>
+                    </div>
+                    <p class="text-gray-600">Piezas o peones inactivos, mal colocados, vulnerables o débiles. La prioridad absoluta es mejorar su situación o activarlos.</p>
+                </div>
+                <div class="card fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="flex items-center mb-3">
+                        <span class="color-tag color-naranja mr-3">Naranja</span>
+                        <h3 class="text-xl font-semibold text-gray-800">Piezas Naranjas</h3>
+                    </div>
+                    <p class="text-gray-600">Piezas o peones con potencial no aprovechado al máximo, en transición. No son débiles, pero tampoco óptimos. El objetivo: ¡convertirlos en Verdes!</p>
+                </div>
+                <div class="card fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="flex items-center mb-3">
+                        <span class="color-tag color-verde mr-3">Verde</span>
+                        <h3 class="text-xl font-semibold text-gray-800">Piezas Verdes</h3>
+                    </div>
+                    <p class="text-gray-600">Piezas o peones activos, bien colocados, que contribuyen al juego y controlan áreas importantes. Un rey Verde es un rey seguro.</p>
+                </div>
+                <div class="card fade-in-up" style="animation-delay: 0.5s;">
+                     <div class="flex items-center mb-3">
+                        <span class="color-tag color-verde-fluo mr-3">Verde Fluorescente</span>
+                        <h3 class="text-xl font-semibold text-gray-800">Piezas Verde Fluorescente</h3>
+                    </div>
+                    <p class="text-gray-600">¡La élite! Piezas o peones dominantes que invaden, son muy activos y representan una amenaza significativa para el rival.</p>
+                </div>
+            </div>
+            <p class="text-center mt-12 text-lg text-gray-700 font-medium fade-in-up" style="animation-delay: 0.6s;">
+                Esta metodología es, en esencia, una poderosa <span class="text-emerald-600 font-semibold">estrategia de priorización</span> que te guía en cada jugada.
+            </p>
+        </div>
+    </section>
+
+    <section id="beneficios" class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title fade-in-up">Beneficios de Aprender con la Metodología de Colores</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                <div class="card items-center text-center fade-in-up" style="animation-delay: 0.1s;">
+                    <i class="fas fa-eye text-4xl text-emerald-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Marco Visual Claro</h3>
+                    <p class="text-gray-600">Evalúa posiciones de forma intuitiva y rápida gracias al sistema de colores.</p>
+                </div>
+                <div class="card items-center text-center fade-in-up" style="animation-delay: 0.2s;">
+                    <i class="fas fa-lightbulb text-4xl text-orange-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Decisiones Simplificadas</h3>
+                    <p class="text-gray-600">Simplifica la toma de decisiones estratégicas y tácticas, sabiendo qué pieza necesita atención.</p>
+                </div>
+                <div class="card items-center text-center fade-in-up" style="animation-delay: 0.3s;">
+                    <i class="fas fa-sort-amount-up text-4xl text-red-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Priorización Inteligente</h3>
+                    <p class="text-gray-600">Aprende a priorizar movimientos: mejora tus piezas Rojas y Naranjas antes de buscar la gloria con las Verdes.</p>
+                </div>
+                <div class="card items-center text-center fade-in-up" style="animation-delay: 0.4s;">
+                    <i class="fas fa-shield-alt text-4xl text-emerald-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Identifica Debilidades</h3>
+                    <p class="text-gray-600">Reconoce tus puntos débiles (piezas Rojas) y las oportunidades contra tu rival (sus piezas Rojas).</p>
+                </div>
+                <div class="card items-center text-center fade-in-up" style="animation-delay: 0.5s;">
+                    <i class="fas fa-brain text-4xl text-orange-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Comprensión Profunda</h3>
+                    <p class="text-gray-600">Mejora tu entendimiento de conceptos clave como desarrollo, actividad de piezas e invasión.</p>
+                </div>
+                <div class="card items-center text-center fade-in-up" style="animation-delay: 0.6s;">
+                    <i class="fas fa-rocket text-4xl text-lime-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Juego Dinámico y Efectivo</h3>
+                    <p class="text-gray-600">Fomenta un estilo de juego más activo, lógico y, sobre todo, ¡más fuerte!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="autor" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 md:mr-12 fade-in-up">
+                    <div class="w-64 h-64 md:w-80 md:h-80 bg-gray-300 mx-auto rounded-full shadow-xl flex items-center justify-center text-gray-500">
+                        <p>[Foto de [TU NOMBRE COMPLETO]]</p>
+                    </div>
+                </div>
+                <div class="md:w-2/3 text-center md:text-left fade-in-up" style="animation-delay: 0.2s;">
+                    <h2 class="section-title !text-left !text-3xl md:!text-4xl mb-4">Sobre el Autor: <span class="text-emerald-600">Lara Hernandez</span></h2>
+                    <p class="text-lg text-gray-600 mb-4">
+                        Soy <span class="font-semibold">Lara</span>, creadora y desarrolladora de la Metodología de Colores. Con <span class="font-semibold text-emerald-600">[TUS AÑOS DE EXPERIENCIA EN LÍNEA]</span> de experiencia enseñando ajedrez, especialmente en el ámbito online, he dedicado mi carrera a encontrar formas más efectivas y accesibles para que todos puedan aprender y disfrutar este maravilloso juego.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Mis cualificaciones incluyen <span class="font-semibold">[TUS CUALIFICACIONES PRINCIPALES, ej: Maestro FIDE, Entrenador Nacional Titulado, Pedagogo especializado en...]</span>. La Metodología de Colores nació de la observación de miles de partidas y la necesidad de un lenguaje común para entender la dinámica de las piezas, inspirada en <span class="font-semibold">[Principios de Ajedrez Clave O Inspiraciones, ej: los principios de Steinitz, la importancia de la actividad de las piezas según Nimzowitsch, etc.]</span>.
+                    </p>
+                    <p class="text-gray-600">
+                        Mi enfoque se centra en aplicar y enseñar esta metodología de manera práctica, ayudando a los alumnos a ver el ajedrez con nuevos ojos y a tomar decisiones más informadas en el tablero.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="libro" class="py-16 md:py-24 bg-emerald-600 text-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                <div class="md:w-1/2 text-center md:text-left fade-in-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">¡Próximamente! El Libro Definitivo</h2>
+                    <h3 class="text-2xl md:text-3xl font-semibold mb-6">"<span class="italic">[TÍTULO DEL LIBRO]: Domina el Tablero con la Metodología de Colores</span>"</h3>
+                    <p class="text-lg mb-6">
+                        En este libro, profundizo en cada aspecto de la Metodología de Colores. Encontrarás explicaciones detalladas, ejemplos prácticos extraídos de partidas magistrales y de aficionados, ejercicios para poner a prueba tu comprensión y estrategias claras para aplicar los colores en tus propias partidas, sin importar tu nivel actual.
+                    </p>
+                    <div class="space-y-4 md:space-y-0 md:space-x-4">
+                        <a href="#contacto" class="secondary-cta-button bg-white text-emerald-700 hover:bg-gray-100">Más Información (Pronto)</a>
+                        </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="w-64 h-80 md:w-80 md:h-96 bg-gray-200 rounded-lg shadow-xl flex items-center justify-center text-gray-700 transform transition-transform duration-500 hover:scale-105">
+                        <p>[Portada de "[TÍTULO DEL LIBRO]"]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="clases" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-xl font-semibold text-gray-800">Clases Online con la Metodología de Colores</h2>
+            <p class="section-subtitle fade-in-up" style="animation-delay: 0.1s;">
+                Lleva tu ajedrez al siguiente nivel con clases personalizadas online, donde aplicaremos directamente la Metodología de Colores para transformar tu juego. ¡Disponible en Español, Inglés y Francés!
+            </p>
+            <br>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card fade-in-up" style="animation-delay: 0.2s;">
+                    <i class="fas fa-globe-americas text-3xl text-emerald-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Multi-idioma</h3>
+                    <p class="text-gray-600">Clases impartidas fluidamente en <span class="font-semibold">Español, Inglés y Francés</span>. La metodología es universal.</p>
+                </div>
+                <div class="card fade-in-up" style="animation-delay: 0.3s;">
+                    <i class="fas fa-chalkboard-teacher text-3xl text-emerald-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Enfoque Práctico</h3>
+                    <p class="text-gray-600">Analizaremos tus partidas usando los colores, realizaremos ejercicios específicos y nos enfocaremos en la priorización y toma de decisiones.</p>
+                </div>
+                <div class="card fade-in-up" style="animation-delay: 0.4s;">
+                    <i class="fas fa-users text-3xl text-emerald-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Para Todos los Niveles</h3>
+                    <p class="text-gray-600">Desde principiantes que buscan una base sólida hasta jugadores intermedios que quieren refinar su comprensión estratégica.</p>
+                </div>
+            </div>
+            <div class="text-center mt-12 fade-in-up" style="animation-delay: 0.5s;">
+                <a href="#contacto" class="cta-button">Solicita Información sobre las Clases</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="oferta" class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-title fade-in-up">Empieza tu Viaje con los Colores</h2>
+            <p class="text-xl text-gray-700 mb-6 fade-in-up" style="animation-delay: 0.1s;">
+                <span class="font-semibold text-orange-500">[DESCRIBE TU OFERTA GRATUITA: Ej. "Obtén una Introducción Gratuita a la Metodología de Colores" o "Tu Primera Clase de Diagnóstico Gratuita con la Metodología"]</span>
+            </p>
+            <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto fade-in-up" style="animation-delay: 0.2s;">
+                En esta sesión inicial, evaluaremos tu juego actual, te introduciré a los conceptos fundamentales de la Metodología de Colores y verás de primera mano cómo puede ayudarte a identificar áreas de mejora y a pensar de forma más estructurada sobre el ajedrez.
+            </p>
+            <a href="#contacto" class="cta-button bg-orange-500 hover:bg-orange-600 text-lg fade-in-up" style="animation-delay: 0.3s;">¡Quiero mi Sesión Introductoria!</a>
+        </div>
+    </section>
+
+    <section id="testimonios" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title fade-in-up">Lo que Dicen Nuestros Alumnos</h2>
+            <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
+                <div class="card fade-in-up" style="animation-delay: 0.1s;">
+                    <p class="text-gray-600 italic mb-4">"[TESTIMONIO DE ALUMNO 1: Ejemplo: La Metodología de Colores realmente me abrió los ojos. Ahora entiendo mucho mejor por qué una pieza está bien o mal colocada. ¡Mis resultados han mejorado notablemente!]"</p>
+                    <p class="text-right font-semibold text-emerald-600">- Nombre del Alumno 1</p>
+                </div>
+                <div class="card fade-in-up" style="animation-delay: 0.2s;">
+                    <p class="text-gray-600 italic mb-4">"[TESTIMONIO DE ALUMNO 2: Ejemplo: Las clases online con [TU NOMBRE COMPLETO] y su método son fantásticas. Explica conceptos complejos de forma sencilla y el sistema de colores es muy intuitivo. Lo recomiendo al 100%.]"</p>
+                    <p class="text-right font-semibold text-emerald-600">- Nombre del Alumno 2</p>
+                </div>
+                <div class="card fade-in-up lg:col-span-2" style="animation-delay: 0.3s;">
+                    <p class="text-gray-600 italic mb-4">"[TESTIMONIO DE ALUMNO 3: Ejemplo: Antes me perdía en posiciones complicadas. Ahora, con los colores, tengo una guía clara para saber qué hacer. ¡Es como tener un mapa del tesoro en el tablero!]"</p>
+                    <p class="text-right font-semibold text-emerald-600">- Nombre del Alumno 3</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-16 md:py-24 bg-gray-800 text-gray-200">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title !text-white fade-in-up">Ponte en Contacto y Descubre los Colores</h2>
+            <p class="section-subtitle !text-gray-300 fade-in-up" style="animation-delay: 0.1s;">
+                ¿Listo para transformar tu ajedrez? Completa el formulario o envíame un correo. ¡Espero ayudarte a alcanzar tus metas!
+            </p>
+            <br>
+            <div class="max-w-2xl mx-auto bg-white p-8 md:p-10 rounded-lg shadow-xl fade-in-up" style="animation-delay: 0.2s;">
+                <form id="contactForm" action="#" method="POST"> <div class="mb-5">
+                        <label for="nombre" class="block mb-2 text-sm font-medium text-gray-700">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5" placeholder="Tu Nombre" required>
+                    </div>
+                    <div class="mb-5">
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-700">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5" placeholder="tu@correo.com" required>
+                    </div>
+                    <div class="mb-5">
+                        <label for="asunto" class="block mb-2 text-sm font-medium text-gray-700">Asunto</label>
+                        <input type="text" id="asunto" name="asunto" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5" placeholder="Ej: Información Clases, Consulta Libro" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="mensaje" class="block mb-2 text-sm font-medium text-gray-700">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5" placeholder="Escribe tu consulta aquí..." required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="cta-button w-full md:w-auto">Enviar Mensaje</button>
+                    </div>
+                    <p id="form-status" class="mt-4 text-center text-sm text-gray-600"></p>
+                </form>
+                <p class="mt-6 text-center text-sm text-gray-700">
+                    Este formulario está listo para ser conectado a un servicio de backend (ej: Formspree, Netlify Forms, o tu propio script).
+                </p>
+            </div>
+            <div class="text-center mt-12 fade-in-up" style="animation-delay: 0.3s;">
+                <p class="text-lg mb-2">También puedes contactarme directamente:</p>
+                <a href="mailto:[TU CORREO ELECTRÓNICO]" class="text-xl text-emerald-400 hover:text-emerald-300 transition duration-300">larahernandez0797@gmail.com</a>
+                <div class="mt-6 space-x-6">
+                    <a href="[Enlace a Red Social 1: ej. LinkedIn, Twitter, Facebook]" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-linkedin fa-2x"></i></a>
+                    <a href="[Enlace a Red Social 2: ej. YouTube, Instagram]" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-youtube fa-2x"></i></a>
+                    <a href="[Enlace a Red Social 3]" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-facebook-square fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-2">&copy; <span id="currentYear"></span> Lara Hernandez - Metodología de Colores para Ajedrez. Todos los derechos reservados.</p>
+            <p class="text-sm">
+                <a href="#" class="hover:text-emerald-400">Política de Privacidad (Placeholder)</a> | 
+                <a href="#" class="hover:text-emerald-400">Términos de Uso (Placeholder)</a> |
+                <a href="#" class="hover:text-emerald-400">Política de Cookies (Placeholder)</a>
+            </p>
+            <p class="text-xs mt-4">Diseño y desarrollo con <i class="fas fa-heart text-red-500"></i> para la comunidad ajedrecística.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript para funcionalidades interactivas
+
+        // Menú Móvil
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinksMobile = mobileMenu.querySelectorAll('a');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('-translate-x-full'); // Para animación de entrada/salida
+            mobileMenu.classList.toggle('translate-x-0');
+        });
+
+        // Cerrar menú móvil al hacer clic en un enlace
+        navLinksMobile.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.add('-translate-x-full');
+                mobileMenu.classList.remove('translate-x-0');
+            });
+        });
+        
+        // Smooth scroll para enlaces de ancla (si no se usa scroll-behavior: smooth en CSS)
+        // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        //     anchor.addEventListener('click', function (e) {
+        //         e.preventDefault();
+        //         document.querySelector(this.getAttribute('href')).scrollIntoView({
+        //             behavior: 'smooth'
+        //         });
+        //     });
+        // });
+
+        // Animación de aparición al hacer scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 // El 10% del elemento debe ser visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // observer.unobserve(entry.target); // Descomentar si solo quieres que la animación ocurra una vez
+                } else {
+                    // entry.target.classList.remove('visible'); // Descomentar si quieres que la animación se repita al scrollear arriba/abajo
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Año actual en el footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Manejo básico del formulario de contacto (solo frontend)
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('form-status');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Previene el envío real del formulario
+
+                // Aquí es donde integrarías el envío a un backend
+                // Por ahora, solo mostramos un mensaje de éxito/simulación
+                formStatus.textContent = 'Enviando tu mensaje...';
+                formStatus.className = 'mt-4 text-center text-sm text-blue-600';
+
+
+                // Simular un retraso de envío
+                setTimeout(() => {
+                    // Recoger datos del formulario (ejemplo)
+                    const formData = new FormData(contactForm);
+                    const name = formData.get('nombre');
+                    
+                    // Aquí podrías hacer una petición fetch a tu backend
+                    // fetch('/api/contact', { method: 'POST', body: formData })
+                    // .then(response => response.json())
+                    // .then(data => { ... })
+                    // .catch(error => { ... });
+
+                    formStatus.textContent = `¡Gracias, ${name}! Tu mensaje ha sido recibido (simulación). Te contactaremos pronto.`;
+                    formStatus.className = 'mt-4 text-center text-sm text-emerald-600';
+                    contactForm.reset(); // Limpia el formulario
+                }, 2000);
+            });
+        }
+
+    </script>
+</body>
+</html>
