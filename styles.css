@@ -1,0 +1,924 @@
+/* 1) PALETA EN ROOT */
+:root {
+    /* Paleta 1: */
+    /* --fondo: #FCE7C8; */
+    --principal: #B1C29E;
+    /* --terciario: #F0404B; */
+    /* Paleta 2: */
+    /* --fondo: #A94A4A;
+    --principal: #F4D793;
+    --secundario: #FFF6DA;
+    --terciario: #889E73; */
+    /* Paleta 3: */
+    --blanco: #FFF;
+    --fondo: #FCE7C8;
+    /*--principal: #FFE6A9; */
+    --secundario: #FADA7A; 
+    --terciario: #A66E38; /*#659287; */
+
+    --accent-red:  #D24F4F;
+    --text-dark:   #222221;
+    --text-muted:  #222221;
+
+    --book-red:           #D24F4F;
+    --book-yellow-orange: #F1B51A;
+    --book-green:         #88C057;
+    --fluorescent:        #54ff33;
+}
+
+/* ========= Header principal ========= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--blanco);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Contenedor interior */
+.header__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;                /* px-4 */
+  height: 4rem;                   /* h-16 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ========= Logo ========= */
+.header__logo {
+  font-size: 1.5rem;              /* text-2xl */
+  font-weight: 800;               /* extrabold */
+  letter-spacing: -0.02em;        /* tracking-tight */
+  color: var(--terciario);
+  text-decoration: none;
+  transition: color 200ms;
+}
+.header__logo:hover {
+  color: var(--secundario);
+}
+
+/* ========= Navegación desktop ========= */
+/* por defecto oculta */
+.nav-desktop {
+  display: none;
+}
+/* a partir de 768px, se muestra */
+@media (min-width: 768px) {
+  .nav-desktop {
+    display: block;
+  }
+}
+.nav-desktop__list {
+  display: flex;
+  gap: 2rem;                      /* space-x-8 */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-desktop__link {
+  font-size: 1rem;
+  color: var(--terciario);
+  padding: 0.25rem 0.25rem;       /* px-1 py-2 */
+  text-decoration: none;
+  border-radius: 0.25rem;
+  transition: color 200ms;
+}
+.nav-desktop__link:hover,
+.nav-desktop__link:focus {
+  color: var(--secundario);
+}
+.nav-desktop__link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--secundario);
+}
+
+/* ========= Hero Section ========= */
+/* ====================== HERO ====================== */
+/* 1) Contenedor general del Hero */
+.hero {
+  background-color: #F1E6D2;              /* Beige claro de respaldo */
+  position: relative;                     /* Para el pseudo-elemento de fondo */
+  overflow: hidden;                       /* Para que nada desborde */
+  
+  /* Fuerza que el hero cubra toda la ventana */
+  min-height: 100vh;
+  
+  /* Lo convertimos en flex para centrar su contenido */
+  display: flex;
+  align-items: center;     /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  
+  /* Solo padding horizontal; quitamos padding-top/bottom */
+  padding: 0 1.5rem;
+  color: var(--text-dark);
+}
+
+/* Si quieres un pequeño espacio extra en pantallas grandes, 
+   podrías usar, por ejemplo:
+@media (min-width: 768px) {
+  .hero {
+    padding: 1rem 1.5rem; 
+  }
+}
+*/
+
+/* 2) Pseudo-elemento con el patrón tileado y semitransparencia */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  background-image: url('img/fondo.png'); /* Ajusta la ruta si lo tienes en otro folder */
+  background-repeat: repeat;
+  background-position: top left;
+  background-size: auto;
+  opacity: 0.4;  /* Ajusta entre 0 (invisible) y 1 (opaco) */
+  z-index: 0;     /* Detrás del contenido */
+}
+
+/* 3) Contenido real (hero__inner) por encima del fondo */
+.hero__inner {
+  position: relative;
+  z-index: 1;
+
+  /* Convertimos en flex column para empujar la CTA hacia abajo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* Centra el texto y gráficos horizontalmente */
+
+  /* Como el .hero hace `min-height:100vh`, aquí damos full height al inner */
+  height: 100%;
+  max-width: 800px;         /* O el ancho que prefieras como máximo */
+  width: auto;              /* No ocupe 100% para que el flex pueda centrarlo */
+  
+  text-align: center;
+  margin: 0;                /* Sin márgenes extra */
+}
+
+/* 4) Título principal */
+.hero__title {
+  font-size: 2.5rem;         /* tamaño móvil base */
+  line-height: 1.1;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0;
+}
+@media (min-width: 640px) { .hero__title { font-size: 3rem; } }
+@media (min-width: 768px) { .hero__title { font-size: 4rem; } }
+@media (min-width: 1024px){ .hero__title { font-size: 4.5rem; } }
+
+.hero__highlight {
+  color: var(--terciario);
+}
+
+/* 5) Subtítulo */
+.hero__subtitle {
+  font-size: 1.125rem;       /* text-lg */
+  color: var(--text-muted);
+  max-width: 48rem;          /* max-w-3xl */
+  margin: 1rem auto 2rem;    /* espacio arriba para separación */
+  line-height: 1.5;
+}
+
+/* 6) Gráfico representativo */
+.hero__graphic-wrapper {
+  /* Sierra un margen superior pequeño antes de la imagen */
+  margin-bottom:  auto; /* No necesitamos margin-top porque el flex centraliza */
+  max-width: 40rem;
+  width: 100%;
+  height: auto;
+}
+
+.hero__graphic {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;  /* Separación antes de la CTA */
+}
+
+/* 7) Botón CTA pegado al fondo del hero */
+.hero__cta {
+  display: inline-block;
+  background-color: var(--terciario);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 200ms, transform 200ms;
+
+  /* Empuja la CTA hasta el fondo del contenedor flex (.hero__inner) */
+  margin-top: auto;
+}
+
+.hero__cta:hover {
+  background-color: var(--secundario);
+  transform: translateY(-2px);
+}
+
+/* 8) Animaciones fade-in-up */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out both;
+}
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-600 { animation-delay: 0.6s; }
+
+
+/* ---------- Sección Metodología ---------- */
+.section {
+  background-color: #ffffff;
+  padding: 5rem 1.5rem; /* py-20 + px-6 */
+}
+@media (min-width: 768px) {
+  .section {
+    padding: 7rem 1.5rem; /* md:py-28 */
+  }
+}
+
+.section__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+/* Intro título */
+.section__intro {
+  display: inline-block;
+  margin-bottom: 2.5rem;
+}
+
+.section__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section__icon {
+  font-size: 2.5rem;  /* text-4xl */
+  margin-right: 1rem;
+  color: var(--terciario);
+}
+@media (min-width: 768px) {
+  .section__icon {
+    font-size: 3rem; /* md:text-5xl */
+  }
+}
+
+.section__title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 1rem;
+}
+@media (min-width: 768px) {
+  .section__title {
+    font-size: 2.25rem; /* md:text-4xl */
+  }
+}
+
+.section__divider {
+  width: 8rem;
+  height: 0.375rem;     /* h-1.5 */
+  background-color: var(--terciario);
+  border-radius: 9999px;
+  margin: 0.75rem auto 0;
+}
+
+/* Subtítulo */
+.section__subtitle {
+  max-width: 48rem;     /* max-w-3xl */
+  margin: 0 auto;
+  color: var(--text-muted);
+  font-size: 1rem;      /* text-base */
+  line-height: 1.5;
+}
+
+/* Grid de tarjetas */
+.section__cards {
+  margin-top: 4rem;     /* mt-16 */
+  display: grid;
+  gap: 3rem 2rem;       /* gap-y-12 + gap-x-8 */
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .section__cards {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .section__cards {
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+
+/* Tarjeta */
+.section__card {
+  background:white;
+  border-top: 0.25rem solid; /* border thickness */
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+/* Variantes de color */
+.section__card--red          { border-color: var(--book-red); }
+.section__card--orange       { border-color: var(--book-yellow-orange); }
+.section__card--green        { border-color: var(--book-green); }
+.section__card--fluorescent  { border-color: var(--fluorescent); }
+
+/* Contenido de la tarjeta */
+.section__card-icon {
+  font-size: 3rem;     /* text-6xl */
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.section__card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.section__card-text {
+  color: var(--text-muted);
+  font-size: 0.9375rem; /* text-sm */
+  line-height: 1.4;
+}
+
+.section__card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+  transform: translateY(-0.25rem);
+}
+
+/* Texto final */
+.section__footer-text {
+  margin-top: 4rem;   /* mt-16 */
+  font-size: 1.125rem;/* text-xl */
+  color: var(--text-muted);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.section__footer-text .highlight {
+  color: var(--book-green);
+  font-weight: 600;
+}
+
+/* Animaciones (si las usas) */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(1rem); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+/* animación básica */
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out both;
+}
+/* retrasos */
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-500 { animation-delay: 0.5s; }
+.animate-delay-600 { animation-delay: 0.6s; }
+
+/* Sección Libro */
+.book-section {
+  background: var(--bg-hero-cta);
+  color: var(--text-light);
+  padding: 5rem 1.5rem; /* py-20 + px-6 */
+}
+@media (min-width: 768px) {
+  .book-section { padding: 7rem 1.5rem; /* md:py-28 */ }
+}
+.book__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Layout flex responsivo */
+.book__flex {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+@media (min-width: 768px) {
+  .book__flex { flex-direction: row; align-items: center; gap: 4rem; }
+}
+.book__text {
+  width: 100%;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .book__text { width: 50%; text-align: left; }
+}
+
+/* Títulos y párrafos */
+.book__title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+@media (min-width: 768px) {
+  .book__title { font-size: 2.25rem; /* md:text-4xl */ }
+}
+.book__subtitle {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--text-muted);
+}
+@media (min-width: 768px) {
+  .book__subtitle { font-size: 1.875rem; /* md:text-3xl */ }
+}
+.book__paragraph {
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  color: var(--text-muted);
+}
+
+/* CTA outline */
+.book__cta {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--text-light);
+  color: var(--text-light);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 200ms, color 200ms;
+}
+.book__cta:hover {
+  background-color: var(--text-light);
+  color: var(--terciario);
+}
+
+/* Imagen del libro */
+.book__image-wrapper {
+  width: 16rem; /* w-64 */
+  height: 20rem; /* h-80 */
+  margin: 0 auto;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  overflow: hidden;
+  transition: transform 500ms;
+}
+.book__image-wrapper:hover {
+  transform: scale(1.05);
+}
+@media (min-width: 768px) {
+  .book__image-wrapper { width: 18rem; height: 28rem; /* md:w-72 md:h-[28rem] */ }
+}
+.book__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ========= Footer ========= */
+.footer {
+  background-color: var(--terciario);      /* verde oscuro */
+  color:            var(--primario);       /* amarillo claro para textos */
+  border-top:       1px solid var(--primario);
+  padding-top:      3rem;                  /* py-12 */
+  padding-bottom:   3rem;
+  text-align:       center;
+}
+
+.footer a {
+  color:               var(--primario);
+  text-decoration:     none;
+  transition:          color 200ms;
+}
+
+.footer a:hover {
+  color: var(--secundario);                /* verde más claro al pasar */
+}
+
+.footer .heart-icon {
+  color: var(--accent-red);
+  display: inline-block;
+  transition: transform 200ms;
+}
+
+.footer .heart-icon:hover {
+  transform: scale(1.1);
+}
+
+/* ========== Sección Contacto ========== */
+.contact-section {
+  background-color: #F7FAFC;
+  color: var(--text-light);
+  padding: 5rem 1.5rem;  /* py-20 + px-6 */
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .contact-section {
+    padding: 7rem 1.5rem; /* md:py-28 */
+  }
+}
+
+.contact__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Título e icono de introducción */
+.contact__intro {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;   /* mb-8 */
+}
+.contact__icon {
+  font-size: 2.5rem;      /* text-4xl */
+  color: var(--terciario);
+  margin-right: 1rem;
+}
+@media (min-width: 768px) {
+  .contact__icon {
+    font-size: 3rem;      /* md:text-5xl si hiciera falta */
+  }
+}
+.contact__title {
+  font-size: 1.875rem;    /* text-3xl */
+  font-weight: 700;
+  color: var(--text-light);
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .contact__title {
+    font-size: 2.25rem;   /* md:text-4xl */
+  }
+}
+
+/* Párrafo de introducción */
+.contact__paragraph {
+  font-size: 1.125rem;    /* text-lg */
+  color: rgba(255,255,255,0.8); /* equivalente a text-gray-300 sobre fondo oscuro */
+  max-width: 42rem;       /* max-w-2xl */
+  margin: 0 auto 3rem;    /* mx-auto + mb-12 */
+  line-height: 1.6;
+}
+
+/* Lista de información (email y teléfono) */
+.contact__info-list {
+  margin-top: 2.5rem;     /* mt-10 */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;            /* space-y-6 */
+}
+@media (min-width: 640px) {
+  .contact__info-list {
+    gap: 1.5rem;         /* mismo gap en dispositivos más grandes */
+  }
+}
+.contact__info-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .contact__info-item {
+    justify-content: center;
+  }
+}
+.contact__info-icon {
+  font-size: 1.5rem;      /* text-xl approximado para icono */
+  color: var(--terciario);
+  margin-right: 0.5rem;
+}
+.contact__info-link {
+  font-size: 1.25rem;     /* text-xl */
+  font-weight: 500;       /* font-medium */
+  color: var(--terciario);
+  text-decoration: none;
+  transition: color 200ms;
+}
+.contact__info-link:hover {
+  color: var(--secundario); /* verde claro al pasar */
+}
+
+/* Redes sociales */
+.social-links {
+  margin-top: 3rem;       /* mt-12 */
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;            /* space-x-6 */
+}
+@media (min-width: 768px) {
+  .social-links {
+    gap: 2rem;            /* md:space-x-8 */
+  }
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--terciario);
+  font-size: 1.75rem;     /* text-3xl */
+  transition: color 200ms, transform 200ms;
+}
+.social-link:hover {
+  color: var(--secundario);
+  transform: scale(1.1);
+}
+
+  /* Fondos y texturas */
+  /*--book-bg-beige:  #FFF2CD; /* µ RGB(255,242,205) */
+  /*--book-text-dark: #1A1A1A; /* Negro suave para titulares */
+
+  /* Colores de los círculos */
+  /*--book-yellow-orange: #FCE079; /* µ RGB(252,224,121) */
+  /*--book-green:         #A8B43F; /* µ RGB(168,180, 63) */
+  /*--book-red:           #C22C1B; /* µ RGB(194, 44, 27) */
+
+  /* Accent y variantes */
+  /*--site-accent-emerald:        var(--book-green);
+  /*--site-accent-emerald-light:  #D0D391; /* tonalidad más suave */
+  /*--site-accent-emerald-lighter:#ECEBD9; /* muy pálido */
+
+  /* Grises neutrales */
+  /*--gray-700:  #4A5568;
+  /*--gray-100:  #F7FAFC;
+  /*--gray-200-80: rgba(229,231,235,0.8);
+  /*--gray-400:  #A0AEC0;
+}
+
+
+/* 2) BODY */
+/*body {
+/*  font-family: 'Inter', sans-serif;
+/*  background-color: var(--site-accent-emerald-lighter);
+/*  -webkit-font-smoothing: antialiased;
+/*  -moz-osx-font-smoothing: grayscale;
+/*  color: var(--gray-700);
+/*}
+
+/* 3) NAVIGATION LINKS */
+/*.nav-link {
+/*  color: var(--gray-700);
+/*  padding: 0.5rem 0.75rem;
+/*  border-radius: 0.375rem;
+/*  font-size: 1.25rem;
+/*  font-weight: 500;
+/*  position: relative;
+/*  transition: color 0.3s;
+/*}
+/*.nav-link:hover {
+/*  color: var(--site-accent-emerald);
+/*}
+
+/* 4) MOBILE NAV LINKS */
+/*.nav-link-mobile {
+/*  display: block;
+/*  padding: 0.75rem 1rem;
+/*  font-size: 1rem;
+/*  font-weight: 500;
+/*  color: var(--gray-700);
+/*  transition: background-color 0.3s, color 0.3s;
+/*}
+/*.nav-link-mobile:hover {
+/*  background-color: var(--emerald-50);
+/*  color: var(--site-accent-emerald);
+/*}
+
+.site-header {
+  background-color: var(--site-accent-emerald-light);
+  backdrop-filter: blur(0.5rem);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.logo-link {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-700);
+  transition: color 0.3s;
+}
+.logo-link:hover {
+  color: var(--site-accent-emerald-light);
+}
+
+
+.hero-cta {
+  display: inline-block;
+  font-size: 1.125rem;            /* reemplaza text-lg */
+/*  padding: 0.75rem 2.5rem;
+/*  font-weight: 600;
+/*  border: 2px solid var(--site-accent-emerald);
+/*  border-radius: 0.5rem;
+/*  color: var(--site-accent-emerald);
+/*  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+/*  letter-spacing: 0.5px;
+/*}
+/*.hero-cta:hover {
+/*  background-color: var(--site-accent-emerald);
+/*  color: white;
+/*  transform: scale(1.05);
+/*}
+/*.hero-cta:focus {
+/*  outline: 2px solid var(--site-accent-emerald-light);
+/*  outline-offset: 2px;
+/*}
+
+/* 5) MOBILE MENU OPEN */
+/*#mobile-menu.menu-open {
+/*  opacity: 1;
+/*  transform: translateY(0);
+/*  pointer-events: auto;
+/*}
+
+/* 6) SECTION HEADINGS */
+/*.section-heading {
+/*  font-weight: 800;
+/*  text-transform: uppercase;
+/*  margin: 0;
+/*  color: var(--book-text-dark);
+/*  letter-spacing: 0.025em;
+/*  font-size: 1.875rem;
+/*}
+/*@media (min-width: 768px) {
+/*  .section-heading { font-size: 2.25rem; }
+/*}
+/*@media (min-width: 1024px) {
+/*  .section-heading { font-size: 3rem; }
+/*}
+
+/* 7) SECTION SUBHEADINGS */
+/*.section-subheading {
+/*  font-size: 1.125rem;
+/*  line-height: 1.75rem;
+/*  color: var(--gray-700);
+/*}
+/*@media (min-width: 768px) {
+/*  .section-subheading { font-size: 1.25rem; }
+/*}
+
+/* 8) SECONDARY CTA BUTTON */
+/*.secondary-cta-button {
+/*  display: inline-block;
+/*  background-color: white;
+/*  color: var(--site-accent-emerald);
+/*  font-weight: 600;
+/*  padding: 0.75rem 2.5rem;
+/*  border-radius: 0.5rem;
+/*  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+/*  transition: background-color 0.3s, transform 0.2s, color 0.3s;
+/*  letter-spacing: 0.5px;
+/*}
+/*.secondary-cta-button:hover {
+/*  background-color: var(--gray-100);
+/*  transform: scale(1.05);
+/*}
+/*.secondary-cta-button:focus {
+/*  outline: 2px solid var(--site-accent-emerald-light);
+/*  outline-offset: 2px;
+/*}
+
+/* 9) CTA BUTTON OUTLINE */
+/*.cta-button-outline {
+/*  display: inline-block;
+/*  border: 2px solid var(--site-accent-emerald);
+/*  color: var(--site-accent-emerald);
+/*  font-weight: 600;
+/*  padding: 0.75rem 2.5rem;
+/*  border-radius: 0.5rem;
+/*  transition: background-color 0.3s, transform 0.2s, color 0.3s;
+/*  letter-spacing: 0.5px;
+/*}
+/*.cta-button-outline:hover {
+/*  background-color: var(--site-accent-emerald);
+/*  color: white;
+/*  transform: scale(1.05);
+/*}
+/*.cta-button-outline:focus {
+/*  outline: 2px solid var(--site-accent-emerald-light);
+/*  outline-offset: 2px;
+/*}
+
+/* 10) CTA PRIMARY (si lo usas) */
+/*.cta-button {
+/*  display: inline-block;
+/*  background-color: var(--site-accent-emerald);
+/*  color: white;
+/*  font-weight: 600;
+/*  padding: 0.75rem 2rem;
+/*  border-radius: 0.5rem;
+/*  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+/*  transition: background-color 0.3s, transform 0.2s;
+/*  letter-spacing: 0.5px;
+/*}
+/*.cta-button:hover {
+/*  background-color: var(--site-accent-emerald-light);
+/*  transform: scale(1.05);
+/*}
+
+/* 11) CARDS GENERAL */
+.card {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+  transform: translateY(-0.25rem);
+}
+
+/* 12) METODOLOGÍA CARDS */
+/*.metodología-card {
+/*  border-top: 4px solid currentColor;
+/*}
+/*.metodología-card.border-book-red { color: var(--book-red); }
+/*.metodología-card.border-book-green { color: var(--book-green); }
+/*.metodología-card.border-book-yellow-orange { color: var(--book-yellow-orange); }
+/*.metodología-card:hover {
+/*  transform: translateY(-0.375rem) scale(1.03);
+/*}
+
+/* 13) CARD TITLES & TEXT */
+/*.card-title {
+/*  color: var(--book-text-dark);
+/*  font-size: 1.25rem;
+/*  font-weight: 600;
+/*}
+/*@media (min-width: 768px) {
+/*  .card-title { font-size: 1.5rem; }
+/*}
+/*.card-text {
+/*  color: var(--gray-700);
+/*  font-size: 0.875rem;
+/*  line-height: 1.625rem;
+/*}
+/*@media (min-width: 768px) {
+/*  .card-text { font-size: 1rem; }
+/*}
+
+/* 14) CLASE CARD */
+/*.clase-card {
+/*  text-align: center;
+/*}
+
+/* 15) TESTIMONIO CARD */
+/*.testimonio-card {
+/*  background-color: rgba(255,255,255,0.85);
+/*  border: 1px solid var(--gray-200-80);
+/*  padding: 1.5rem;
+/*  border-radius: 0.5rem;
+/*  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+/*}
+/*.testimonio-card:hover {
+/*  border-color: var(--book-yellow-orange);
+/*}
+/*.testimonio-card p:first-child::before {
+/*  content: "“";
+/*  font-size: 3.75rem;
+/*  opacity: 0.6;
+/*  font-family: serif;
+/*  float: left;
+/*  margin-top: -0.25rem;
+/*  margin-right: 0.5rem;
+/*  height: 0;
+/*  color: var(--book-green);
+/*}
+/*.testimonio-card p:last-of-type {
+/*  margin-top: 1rem;
+/*}
+
+/* 16) SOCIAL LINKS */
+/*.social-link {
+/*  color: var(--gray-400);
+/*  display: inline-block;
+/*  transition: transform 0.3s, color 0.3s;
+/*}
+/*.social-link:hover {
+/*  transform: scale(1.1);
+/*  color: var(--site-accent-emerald-lighter);
+/*}
