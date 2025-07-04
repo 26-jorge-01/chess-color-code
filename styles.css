@@ -129,11 +129,9 @@
   content: "";
   position: absolute;
   inset: 0; /* top:0; right:0; bottom:0; left:0; */
-  background-image: url('./img/fondo.png'); /* Ajusta la ruta si lo tienes en otro folder */
-  background-repeat: repeat;
-  background-position: top left;
-  background-size: auto;
-  opacity: 0.4;  /* Ajusta entre 0 (invisible) y 1 (opaco) */
+  background-image: url('./img/fondo_4.jpeg'); /* Ajusta la ruta si lo tienes en otro folder */
+  background-size: cover;
+  opacity: 0.5;  /* Ajusta entre 0 (invisible) y 1 (opaco) */
   z-index: 0;     /* Detrás del contenido */
 }
 
@@ -921,4 +919,11 @@
 /*.social-link:hover {
 /*  transform: scale(1.1);
 /*  color: var(--site-accent-emerald-lighter);
-/*}
+/*}*/
+
+.bg-image-opacity {
+  /* primero el degradado con alpha, luego la imagen */
+  background: 
+    linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),
+    url('img/fondo_4.jpeg') center/cover no-repeat;
+}
