@@ -10,13 +10,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
-    <link rel="shortcut icon" href="img/icon.jpeg" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logo_arfil.png" type="image/x-icon">
 </head>
 <body>
 <header class="header">
   <div class="header__inner">
     <!-- Logo -->
-    <a href="#" class="header__logo" aria-label="Inicio — Metodología Colores">
+    <a href="#" class="header__logo flex items-center" aria-label="Inicio — Metodología Colores">
+      <img src="img/logo_arfil.png" alt="Logo La Méthode des Couleurs" class="h-12 w-auto mr-2">
       La Méthode des Couleurs
     </a>
 
@@ -36,18 +37,28 @@
     <main>
         <section id="hero" class="hero">
           <div class="hero__inner">
-            <h1 class="hero__title animate-fade-in-up">
+            <!-- 1. Logo sobre el título -->
+            <img
+              src="img/logo_arfil.jpg"
+              alt="Logo La Méthode des Couleurs"
+              class="hero__logo animate-fade-in-up animate-delay-0"
+            />
+          
+            <h1 class="hero__title animate-fade-in-up animate-delay-200">
               <span class="hero__highlight">La Méthode des Couleurs :</span>
               La Révolution Visuelle pour Maîtriser les Échecs
             </h1>
-        
-            <p class="hero__subtitle animate-fade-in-up animate-delay-200">
-              Apprends les échecs de façon structurée, intuitive et efficace. Un système accessible aux joueurs de tous niveaux, développé par 
+          
+            <p class="hero__subtitle animate-fade-in-up animate-delay-400">
+              Apprends les échecs de façon structurée, intuitive et efficace. Un système
+              accessible aux joueurs de tous niveaux, développé par
               <span style="color: var(--terciario); font-weight:600;">Lara Hernandez</span>.
             </p>
-        
-            <a href="#metodologia"
-               class="hero__cta animate-fade-in-up animate-delay-400">
+          
+            <a
+              href="#metodologia"
+              class="hero__cta animate-fade-in-up animate-delay-600"
+            >
               Découvrir la Méthode
             </a>
           </div>
@@ -279,7 +290,7 @@
                     </div>
                     <div class="card testimonio-card animate-on-scroll" style="animation-delay: 0.4s;">
                         <p class="text-gray-600 italic mb-6 text-lg leading-relaxed">“Grâce aux couleurs, je vois tout de suite quelles pièces sont mal placées, et lesquelles sont déjà prêtes. Je ne les bouge plus au hasard : chaque coup a un sens. Ça m’aide à mieux visualiser les plans, à savoir par où commencer, et à construire la position pas à pas.”</p>
-                        <p class="text-right font-semibold highlight text-md">- Vincent Bori, joueur de club depuis 2025 déjà classé 1700 Elo</p>
+                        <p class="text-right font-semibold highlight text-md">- Vincent Bori, joueur de club</p>
                     </div>
                     <div class="card testimonio-card lg:col-span-2 animate-on-scroll" style="animation-delay: 0.5s;">
                          <p class="text-gray-600 italic mb-6 text-lg leading-relaxed">“La Méthode m’aide à mieux développer mes pièces quand je n’ai plus d’idées dans la partie.”</p>
@@ -310,9 +321,9 @@
                    class="contact__info-link">larahernandez0797@gmail.com</a>
               </div>
               <div class="contact__info-item">
-                <i class="fas fa-phone contact__info-icon" aria-hidden="true"></i>
-                <a href="tel:+573001234567"
-                   class="contact__info-link">+33 7 82 60 28 97 (France)</a>
+                <i class="fas fa-envelope contact__info-icon" aria-hidden="true"></i>
+                <a href="mailto:larahernandez@hotmail.fr"
+                   class="contact__info-link">larahernandez@hotmail.fr</a>
               </div>
             </div>
         
@@ -331,6 +342,22 @@
                  class="social-link"
                  aria-label="Instagram de Lara Hernandez">
                 <i class="fab fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="https://superproof.com/" 
+                 target="_blank" rel="noopener noreferrer"
+                 class="social-link"
+                 aria-label="Superproof">
+                <img src="img/logo_chesscom.png" 
+                     alt="Logo Superproof" 
+                     class="social-link__img">
+              </a>
+              <a href="https://www.superprof.fr/developpe-talent-championne-entraineuse-experimentee-dediee-progression.html" 
+                 target="_blank" rel="noopener noreferrer"
+                 class="social-link"
+                 aria-label="Superproof">
+                <img src="img/logo_superprof.png" 
+                     alt="Logo Superproof" 
+                     class="social-link__img">
               </a>
             </div>
           </div>

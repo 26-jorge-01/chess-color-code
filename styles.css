@@ -151,7 +151,7 @@
   width: auto;              /* No ocupe 100% para que el flex pueda centrarlo */
   
   text-align: center;
-  margin: 0;                /* Sin márgenes extra */
+  margin-top: -5rem;                /* Sin márgenes extra */
 }
 
 /* 4) Título principal */
@@ -645,6 +645,11 @@
   color: var(--secundario);
   transform: scale(1.1);
 }
+.social-link__img {
+  width: 1.5rem;   /* igual tamaño que los iconos FA */
+  height: auto;
+  display: block;
+}
 
   /* Fondos y texturas */
   /*--book-bg-beige:  #FFF2CD; /* µ RGB(255,242,205) */
@@ -926,4 +931,30 @@
   background: 
     linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),
     url('img/fondo_4.jpeg') center/cover no-repeat;
+}
+
+/* 1. Centrar todo el contenido verticalmente en columna */
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* para centrar también los textos */
+}
+
+/* 2. Estilo del logo encima del título */
+.hero__logo {
+  width: 20rem;        /* ajusta (3rem, 5rem…) según prefieras */
+  height: auto;
+  margin-bottom: 0.5rem; /* espacio entre logo y H1 */
+}
+
+/* 3. Opcional: ajustes en móviles */
+@media (max-width: 600px) {
+  .hero__logo {
+    width: 3rem;
+    margin-bottom: 0.75rem;
+  }
+  .hero__title {
+    font-size: 1.75rem; /* escala tu H1 en pantallas pequeñas */
+  }
 }
