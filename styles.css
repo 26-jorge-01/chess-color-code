@@ -14,7 +14,7 @@
     --fondo: #FCE7C8;
     /*--principal: #FFE6A9; */
     --secundario: #FADA7A; 
-    --terciario: #A66E38; /*#659287; */
+    --terciario: #936132; /*#659287; */
 
     --accent-red:  #D24F4F;
     --text-dark:   #222221;
@@ -22,7 +22,7 @@
 
     --book-red:           #D24F4F;
     --book-yellow-orange: #F1B51A;
-    --book-green:         #88C057;
+    --book-green:         #56c244;
     --fluorescent:        #54ff33;
 }
 
@@ -328,7 +328,7 @@
 /* Tarjeta */
 .section__card {
   background:white;
-  border-top: 0.25rem solid; /* border thickness */
+  border-top: 0.5rem solid; /* border thickness */
   padding: 1.5rem;
   border-radius: 0.5rem;
   box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
