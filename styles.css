@@ -131,7 +131,7 @@
   inset: 0; /* top:0; right:0; bottom:0; left:0; */
   background-image: url('./img/fondo_4.jpeg'); /* Ajusta la ruta si lo tienes en otro folder */
   background-size: cover;
-  opacity: 1.5;  /* Ajusta entre 0 (invisible) y 1 (opaco) */
+  opacity: 0.5;  /* Ajusta entre 0 (invisible) y 1 (opaco) */
   z-index: 0;     /* Detrás del contenido */
 }
 
