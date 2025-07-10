@@ -930,7 +930,7 @@
   /* primero el degradado con alpha, luego la imagen */
   background: 
     linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),
-    url('img/fondo_figuras.jpeg') center/cover no-repeat;
+    url('img/fondo_4.jpeg') center/cover no-repeat;
 }
 
 /* 1. Centrar todo el contenido verticalmente en columna */
