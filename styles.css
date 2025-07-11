@@ -26,6 +26,13 @@
     --fluorescent:        #54ff33;
 }
 
+/* Imágenes siempre al 100% de su contenedor y altura automática */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* ========= Header principal ========= */
 .header {
   position: sticky;
@@ -41,6 +48,7 @@
   margin: 0 auto;
   padding: 0 1rem;                /* px-4 */
   height: 4rem;                   /* h-16 */
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -151,20 +159,21 @@
   width: auto;              /* No ocupe 100% para que el flex pueda centrarlo */
   
   text-align: center;
-  margin-top: -5rem;                /* Sin márgenes extra */
+  padding-top: 0.5rem;                /* Sin márgenes extra */
 }
 
 /* 4) Título principal */
 .hero__title {
-  font-size: 2.5rem;         /* tamaño móvil base */
   line-height: 1.1;
   font-weight: 800;
   color: var(--text-dark);
   margin: 0;
 }
-@media (min-width: 640px) { .hero__title { font-size: 3rem; } }
-@media (min-width: 768px) { .hero__title { font-size: 4rem; } }
-@media (min-width: 1024px){ .hero__title { font-size: 4.5rem; } }
+.hero__title {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+}
+/* @media (min-width: 768px) { .hero__title { font-size: 4rem; } }
+@media (min-width: 1024px){ .hero__title { font-size: 4.5rem; } } */
 
 .hero__highlight {
   color: var(--terciario);
@@ -249,6 +258,7 @@
 }
 
 .section__container {
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 1.5rem;
@@ -943,9 +953,10 @@
 
 /* 2. Estilo del logo encima del título */
 .hero__logo {
-  width: 35rem;        /* ajusta (3rem, 5rem…) según prefieras */
+  width: 100%;
+  max-width: 500px;    /* o el tamaño máximo que quieras */
   height: auto;
-  margin-bottom: 0.5rem; /* espacio entre logo y H1 */
+  margin-bottom: 0.5rem;
 }
 
 /* 3. Opcional: ajustes en móviles */
