@@ -139,7 +139,7 @@ img {
   inset: 0; /* top:0; right:0; bottom:0; left:0; */
   background-image: url('./img/fondo_colores_figuras3.jpeg'); /* Ajusta la ruta si lo tienes en otro folder */
   background-size: cover;
-  opacity: 1;  /* Ajusta entre 0 (invisible) y 1 (opaco) */
+  opacity: 0.85;  /* Ajusta entre 0 (invisible) y 1 (opaco) */
   z-index: 0;     /* Detrás del contenido */
 }
 
@@ -941,6 +941,12 @@ img {
   background: 
     linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),
     url('img/fondo_4.jpeg') center/cover no-repeat;
+}
+
+.bg-image-white-curso {
+  /* primero el degradado con alpha, luego la imagen */
+  background: 
+    url('img/fondo_blanco_curso.jpeg') center/cover no-repeat;
 }
 
 /* 1. Centrar todo el contenido verticalmente en columna */
